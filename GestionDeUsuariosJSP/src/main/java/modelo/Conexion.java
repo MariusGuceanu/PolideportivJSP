@@ -28,8 +28,8 @@ public class Conexion {
 		try {
 			con.close(); 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.printStackTrace();                 
 		}
-	}
+	}          
 
 }

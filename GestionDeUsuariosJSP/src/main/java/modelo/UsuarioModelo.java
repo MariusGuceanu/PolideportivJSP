@@ -1,5 +1,6 @@
 package modelo;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -29,5 +30,15 @@ public class UsuarioModelo {
  
 		return usuarios;
 	}
-
+	
+	public void crearUsuario(Usuario usuario) {
+		try {
+			PreparedStatement crearUsuario = Conexion.con.prepareStatement(
+					"INSERT INTO usuarios (id,nombre) VALUES (?)");
+			crearUsuario.setString(1, usuario.getNombre());
+			crearUsuario.execute();
+		} catch (SQLException e) {
+			System.out.println("Error: no se ha podido registrar el usuario");
+		}
+	}
 }

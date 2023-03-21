@@ -44,9 +44,8 @@ body{
 				%>
 			</td>
 			<td>
-				<a href="Eliminar?id=<% %>">Eliminar</a>
+				<a href="">Eliminar</a>
 				<a href="">Modificar</a>
-				<a href="">Ver</a>
 			</td>
 
 		</tr>
@@ -55,9 +54,15 @@ body{
 		%>
 	</table>
 	
-	<form method="POST" action="Borrar">
-		<br> <input type="submit" name="borrar" placeholder="borrar" /><br>
-	</form>
+		<form action="InsertarUsuario" method="POST">
+		<table>
+			<tr>
+				<td>Nombre:</td>
+				<td><input type="text" size="20" name="nombre"></td>
+			</tr>
+		</form>
+		</table>
+		
 
 </body>
 </html>
