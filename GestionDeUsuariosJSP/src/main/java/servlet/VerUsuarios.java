@@ -40,7 +40,7 @@ public class VerUsuarios extends HttpServlet {
 		Conexion.cerrar();
 		
 		request.setAttribute("usuarios", usuarios);
-		
+		 
 		request.getRequestDispatcher("Usuarios.jsp").forward(request, response);
 	}
 

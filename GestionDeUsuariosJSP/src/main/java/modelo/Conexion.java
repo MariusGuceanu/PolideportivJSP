@@ -26,7 +26,7 @@ public class Conexion {
 
 	public static void cerrar() {
 		try {
-			con.close();
+			con.close(); 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

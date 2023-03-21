@@ -26,7 +26,7 @@ public class UsuarioModelo {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+ 
 		return usuarios;
 	}
 

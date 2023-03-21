@@ -8,6 +8,11 @@
 <meta charset="ISO-8859-1">
 <title>Usuarios</title>
 </head>
+<style>
+body{
+	background-color:burlywod;
+}
+</style>
 <body>
 
 	<%
@@ -20,6 +25,7 @@
 		<tr>
 			<td>ID</td>
 			<td>Nombre</td>
+			<td>Acciones</td>
 		</tr>
 
 		<%
@@ -36,6 +42,11 @@
 				<%
 				out.print(usuarios.get(i).getNombre());
 				%>
+			</td>
+			<td>
+				<a href="Eliminar?id=<% %>">Eliminar</a>
+				<a href="">Modificar</a>
+				<a href="">Ver</a>
 			</td>
 
 		</tr>
