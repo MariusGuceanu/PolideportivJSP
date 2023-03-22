@@ -37,13 +37,15 @@ body{
 				out.print(usuarios.get(i).getId());
 				%>
 			</td>
-
+				
 			<td>
 				<%
 				out.print(usuarios.get(i).getNombre());
 				%>
 			</td>
+			
 			<td>
+			<a href="ModificarForm.jsp">Modificar</a>
 			</td>
 			
 
@@ -54,7 +56,6 @@ body{
 	</table>
 	
 			<a href="EliminarForm.jsp">Eliminar</a>
-			<a href="ModificarForm.jsp">Modificar</a>
 			<a href="InsertarUsuario">Insercion</a>
 		
 
