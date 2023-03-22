@@ -1,0 +1,57 @@
+package servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import modelo.Conexion;
+import modelo.Usuario;
+import modelo.UsuarioModelo;
+
+/**
+ * Servlet implementation class InsertarUsuario
+ */
+@WebServlet("/InsertarUsuario")
+public class InsertarUsuario extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public InsertarUsuario() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		doPost(request, response);
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		UsuarioModelo um = new UsuarioModelo();
+		Conexion.conectar();
+		
+		String nombre = request.getParameter("nombre");
+		
+		Usuario usuario = new Usuario();
+		
+		usuario.setNombre(nombre);
+
+		um.crearUsuario(usuario);
+		
+		request.getRequestDispatcher("UsuarioInsertado.jsp").forward(request, response);
+	}
+
+}

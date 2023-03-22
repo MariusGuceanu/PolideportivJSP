@@ -41,4 +41,35 @@ public class UsuarioModelo {
 			System.out.println("Error: no se ha podido registrar el usuario");
 		}
 	}
+	
+	public void eliminarUsuario(int id) {
+		
+		String st = "delete from usuarios where id=?";
+		
+		try {
+			PreparedStatement pst = Conexion.con.prepareStatement(st);
+			pst.setInt(1, id);
+			pst.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			}
+		}
+
+		public void modificarUsuario(Usuario usuario) {
+
+			String st = "UPDATE usuarios SET nombre = ? WHERE id = ?";
+		
+		try {
+			PreparedStatement pst = Conexion.con.prepareStatement(st);
+			
+			pst.setString(1, usuario.getNombre());
+			pst.setInt(2, usuario.getId());
+			
+			pst.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
 }

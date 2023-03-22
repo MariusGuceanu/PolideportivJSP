@@ -25,7 +25,6 @@ body{
 		<tr>
 			<td>ID</td>
 			<td>Nombre</td>
-			<td>Acciones</td>
 		</tr>
 
 		<%
@@ -43,10 +42,7 @@ body{
 				out.print(usuarios.get(i).getNombre());
 				%>
 			</td>
-			<td>
-				<a href="">Eliminar</a>
-				<a href="">Modificar</a>
-			</td>
+			
 
 		</tr>
 		<%
@@ -54,14 +50,9 @@ body{
 		%>
 	</table>
 	
-		<form action="InsertarUsuario" method="POST">
-		<table>
-			<tr>
-				<td>Nombre:</td>
-				<td><input type="text" size="20" name="nombre"></td>
-			</tr>
-		</form>
-		</table>
+			<a href="EliminarForm.jsp">Eliminar</a>
+			<a href="ModificarForm.jsp">Modificar</a>
+			<a href="InsertarForm.jsp">Insercion</a>
 		
 
 </body>
