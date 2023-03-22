@@ -15,13 +15,13 @@ import modelo.UsuarioModelo;
  * Servlet implementation class ModificarUsaurio
  */
 @WebServlet("/ModificarUsaurio")
-public class ModificarUsaurio extends HttpServlet {
+public class ModificarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModificarUsaurio() {
+    public ModificarUsuario() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,13 +31,18 @@ public class ModificarUsaurio extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		request.getRequestDispatcher("ModificarForm.jsp").forward(request, response);
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		doGet(request, response);
+		
 		UsuarioModelo um = new UsuarioModelo();
 		Conexion.conectar();
 		
@@ -51,9 +56,9 @@ public class ModificarUsaurio extends HttpServlet {
 		usuario.setNombre(nombre);
 		
 		um.modificarUsuario(usuario);
-			request.getRequestDispatcher("ModificarForm.jsp").forward(request, response);
 			
-			request.getRequestDispatcher("ControladorVerUsuario").forward(request, response);
+		Conexion.cerrar();
+
 
 		}
 	}

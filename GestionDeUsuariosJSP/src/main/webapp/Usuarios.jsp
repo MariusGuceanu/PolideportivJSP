@@ -25,6 +25,7 @@ body{
 		<tr>
 			<td>ID</td>
 			<td>Nombre</td>
+			<td>Acciones</td>
 		</tr>
 
 		<%
@@ -42,6 +43,8 @@ body{
 				out.print(usuarios.get(i).getNombre());
 				%>
 			</td>
+			<td>
+			</td>
 			
 
 		</tr>
@@ -52,7 +55,7 @@ body{
 	
 			<a href="EliminarForm.jsp">Eliminar</a>
 			<a href="ModificarForm.jsp">Modificar</a>
-			<a href="InsertarForm.jsp">Insercion</a>
+			<a href="InsertarUsuario">Insercion</a>
 		
 
 </body>

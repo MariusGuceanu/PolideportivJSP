@@ -10,12 +10,13 @@
 <body>
 	
 	<%Usuario usuario = (Usuario) request.getAttribute("usuario"); %>
+	<%
+	ArrayList<Usuario> usuarios = (ArrayList<Usuario>) request.getAttribute("usuarios");
+	%>
 	
 	<h1>Modificar Usuario</h1>
 	<%=usuario %>
 	<form action="ModificarUsuario" method="POST">
-		<input type="hidden" name="id" value="<%=usuario.getId()%>" >
-		
 		<label for="nombre">Nombre</label>
         <input type="text" name="nombre" value="<%=usuario.getNombre()%>">
         </form>

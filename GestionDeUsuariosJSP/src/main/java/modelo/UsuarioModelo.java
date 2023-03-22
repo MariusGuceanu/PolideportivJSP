@@ -34,7 +34,7 @@ public class UsuarioModelo {
 	public void crearUsuario(Usuario usuario) {
 		try {
 			PreparedStatement crearUsuario = Conexion.con.prepareStatement(
-					"INSERT INTO usuarios (id,nombre) VALUES (?)");
+					"INSERT INTO usuarios (nombre) VALUES (?)");
 			crearUsuario.setString(1, usuario.getNombre());
 			crearUsuario.execute();
 		} catch (SQLException e) {

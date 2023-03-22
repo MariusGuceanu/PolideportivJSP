@@ -12,5 +12,8 @@
         <input type="text" name="nombre">
         <input type="submit" value="Enviar">
     </form>
+    <form action="VerUsuarios">
+    	<input type="submit" value="volver">
+    </form>
 </body>
 </html>
