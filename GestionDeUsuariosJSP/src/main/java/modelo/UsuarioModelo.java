@@ -22,6 +22,7 @@ public class UsuarioModelo {
 				u.setId(rs.getInt(1));
 				u.setNombre(rs.getString(2));
 				u.setContrasena(rs.getString(3));
+				u.setFecha_nac(rs.getDate(4));
 				
 				usuarios.add(u);
 			}

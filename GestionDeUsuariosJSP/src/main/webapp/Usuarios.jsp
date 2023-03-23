@@ -22,6 +22,7 @@
 			<td>ID</td>
 			<td>Nombre</td>
 			<td>Contrasena</td>
+			<td>Fecha_Nacimiento</td>
 			<td>Acciones</td>
 		</tr>
 
@@ -46,6 +47,11 @@
 				out.print(usuarios.get(i).getContrasena());
 				%>
 			</td>
+			<td>
+				<%
+				out.print(usuarios.get(i).getFecha_nac());
+				%>
+			</td>
 			
 			
 			<td>
@@ -59,10 +65,10 @@
 		%>
 	</table>
 	
-	<br>
+	<br> <br> <br>
 			<a class="linkE" style="border-style: solid; padding:1%;" href="EliminarForm.jsp">Eliminar</a>
 			
-	<br> <br> <br>
+	<br> <br> <br> <br>
 	
 			<a class="linkI" style="border-style: solid; padding:1%;" href="InsertarUsuario">Insercion</a>
 		
