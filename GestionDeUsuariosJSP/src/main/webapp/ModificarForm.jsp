@@ -10,15 +10,17 @@
 <body>
 	
 	<%Usuario usuario = (Usuario) request.getAttribute("usuario"); %>
-	<%
-	ArrayList<Usuario> usuarios = (ArrayList<Usuario>) request.getAttribute("usuarios");
-	%>
 	
 	<h1>Modificar Usuario</h1>
 	<%=usuario %>
 	<form action="ModificarUsuario" method="POST">
 		<label for="nombre">Nombre</label>
         <input type="text" name="nombre" value="<%=usuario.getNombre()%>">
+        <label for="contrasena">Contrasena</label>
+        <input type="text" name="contrasena" value="<%=usuario.getContrasena()%>">
         </form>
+        <form action="VerUsuarios">
+    	<input type="submit" value="volver">
+    </form>
 </body>
 </html>

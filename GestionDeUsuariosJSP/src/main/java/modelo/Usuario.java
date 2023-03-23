@@ -4,11 +4,22 @@ public class Usuario {
 
 	private int id;
 	private String nombre;
+	private String contrasena;
 
-	public Usuario(int id, String nombre) {
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+
+
+	public Usuario(int id, String nombre, String contrasena) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
+		this.contrasena = contrasena;
 	}
 
 	public Usuario() {

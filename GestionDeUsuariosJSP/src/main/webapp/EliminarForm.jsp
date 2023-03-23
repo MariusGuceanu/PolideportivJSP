@@ -7,10 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="EliminarUsuario" method="post">
+<form action="EliminarUsuarios" method="POST">
 	<label for="id">ID</label>
 	<input type="text" name="id">
 	<input type="submit" value="enviar">
 </form>
+ <form action="VerUsuarios">
+    	<input type="submit" value="volver">
+    </form>
 </body>
 </html>

@@ -8,11 +8,7 @@
 <meta charset="ISO-8859-1">
 <title>Usuarios</title>
 </head>
-<style>
-body{
-	background-color:burlywod;
-}
-</style>
+<link rel="stylesheet" href="style.css"></link>
 <body>
 
 	<%
@@ -25,6 +21,7 @@ body{
 		<tr>
 			<td>ID</td>
 			<td>Nombre</td>
+			<td>Contrasena</td>
 			<td>Acciones</td>
 		</tr>
 
@@ -45,6 +42,13 @@ body{
 			</td>
 			
 			<td>
+				<%
+				out.print(usuarios.get(i).getContrasena());
+				%>
+			</td>
+			
+			
+			<td>
 			<a href="ModificarForm.jsp">Modificar</a>
 			</td>
 			
@@ -55,8 +59,12 @@ body{
 		%>
 	</table>
 	
-			<a href="EliminarForm.jsp">Eliminar</a>
-			<a href="InsertarUsuario">Insercion</a>
+	<br>
+			<a class="linkE" style="border-style: solid; padding:1%;" href="EliminarForm.jsp">Eliminar</a>
+			
+	<br> <br> <br>
+	
+			<a class="linkI" style="border-style: solid; padding:1%;" href="InsertarUsuario">Insercion</a>
 		
 
 </body>

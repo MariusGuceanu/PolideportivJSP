@@ -18,9 +18,10 @@ public class UsuarioModelo {
 
 			Usuario u;
 			while (rs.next()) {
-				u = new Usuario(0, sql);
+			 	u = new Usuario();
 				u.setId(rs.getInt(1));
 				u.setNombre(rs.getString(2));
+				u.setContrasena(rs.getString(3));
 				
 				usuarios.add(u);
 			}
@@ -34,8 +35,9 @@ public class UsuarioModelo {
 	public void crearUsuario(Usuario usuario) {
 		try {
 			PreparedStatement crearUsuario = Conexion.con.prepareStatement(
-					"INSERT INTO usuarios (nombre) VALUES (?)");
+					"INSERT INTO usuarios (nombre, contrasena) VALUES (?,?)");
 			crearUsuario.setString(1, usuario.getNombre());
+			crearUsuario.setString(2, usuario.getContrasena());
 			crearUsuario.execute();
 		} catch (SQLException e) {
 			System.out.println("Error: no se ha podido registrar el usuario");

@@ -10,8 +10,13 @@
 <form  method="POST" action="InsertarUsuario">
         <label for="nombre">Nombre</label>
         <input type="text" name="nombre">
+        <br> <br>
+        <label for="contrasena">Contrasena</label>
+        <input type="text" name="contrasena">
+        <br> <br>
         <input type="submit" value="Enviar">
     </form>
+    <br>
     <form action="VerUsuarios">
     	<input type="submit" value="volver">
     </form>

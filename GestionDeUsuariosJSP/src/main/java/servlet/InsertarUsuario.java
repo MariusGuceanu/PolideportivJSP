@@ -48,10 +48,12 @@ public class InsertarUsuario extends HttpServlet {
 		Conexion.conectar();
 		
 		String nombre = request.getParameter("nombre");
+		String contrasena = request.getParameter("contrasena");
 		
 		Usuario usuario = new Usuario();
 		
 		usuario.setNombre(nombre);
+		usuario.setContrasena(contrasena);
 
 		um.crearUsuario(usuario);
 		
