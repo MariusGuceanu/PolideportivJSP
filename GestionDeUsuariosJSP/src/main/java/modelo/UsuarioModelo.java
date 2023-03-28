@@ -60,13 +60,14 @@ public class UsuarioModelo {
 
 		public void modificarUsuario(Usuario usuario) {
 
-			String st = "UPDATE usuarios SET nombre = ? WHERE id = ?";
+			String st = "UPDATE usuarios SET nombre = ?, contrasena=? WHERE id = ?";
 		
 		try {
 			PreparedStatement pst = Conexion.con.prepareStatement(st);
 			
 			pst.setString(1, usuario.getNombre());
-			pst.setInt(2, usuario.getId());
+			pst.setString(2, usuario.getContrasena());
+			pst.setInt(3, usuario.getId());
 			
 			pst.execute();
 		} catch (SQLException e) {

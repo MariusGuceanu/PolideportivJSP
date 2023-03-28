@@ -9,15 +9,16 @@
 </head>
 <body>
 	
-	<%Usuario usuario = (Usuario) request.getAttribute("usuario"); %>
+	<%Usuario usuarios = (Usuario) request.getAttribute("usuarios"); %>
 	
 	<h1>Modificar Usuario</h1>
-	<%=usuario %>
 	<form action="ModificarUsuario" method="POST">
+		<input type="text" value="${usuarios.id}" hidden="hidden" name="id">
 		<label for="nombre">Nombre</label>
-        <input type="text" name="nombre" value="<%=usuario.getNombre()%>">
+        <input type="text" name="nombre" value="${usuarios.nombre}">
         <label for="contrasena">Contrasena</label>
-        <input type="text" name="contrasena" value="<%=usuario.getContrasena()%>">
+        <input type="text" name="contrasena" value="<%=usuarios.getContrasena()%>">
+        <input type="submit" value="Enviar">
         </form>
         <form action="VerUsuarios">
     	<input type="submit" value="volver">
