@@ -1,6 +1,10 @@
 package servlet;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,6 +51,13 @@ public class ModificarUsuario extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		String nombre = request.getParameter("nombre");
 		String contrasena = request.getParameter("contrasena");
+		String a = request.getParameter("fecha_nac");
+		Date fecha_nac = null;
+		try {
+			fecha_nac = new SimpleDateFormat("yyyy-MM-dd").parse(a);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}	
 		
 		Conexion.conectar();
 
@@ -56,6 +67,7 @@ public class ModificarUsuario extends HttpServlet {
 		usuario.setId(id);
 		usuario.setNombre(nombre);
 		usuario.setContrasena(contrasena);
+		usuario.setFecha_nac(fecha_nac);
 		
 		um.modificarUsuario(usuario);
 		

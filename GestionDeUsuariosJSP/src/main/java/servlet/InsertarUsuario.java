@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -51,11 +53,17 @@ public class InsertarUsuario extends HttpServlet {
 		
 		String nombre = request.getParameter("nombre");
 		String contrasena = request.getParameter("contrasena");
-		
+		Date fecha_nac = null;
+		try {
+			fecha_nac = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_nac"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}		
 		Usuario usuario = new Usuario();
 		
 		usuario.setNombre(nombre);
 		usuario.setContrasena(contrasena);
+		usuario.setFecha_nac(fecha_nac);
 
 		um.crearUsuario(usuario);
 		

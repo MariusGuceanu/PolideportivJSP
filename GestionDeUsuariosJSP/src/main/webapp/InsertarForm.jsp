@@ -14,6 +14,9 @@
         <label for="contrasena">Contrasena</label>
         <input type="text" name="contrasena">
         <br> <br>
+        <label for="fecha_nac">Fecha_Nac</label>
+        <input type="text" name="fecha_nac">
+        <br> <br>
         <input type="submit" value="Enviar">
     </form>
     <br>

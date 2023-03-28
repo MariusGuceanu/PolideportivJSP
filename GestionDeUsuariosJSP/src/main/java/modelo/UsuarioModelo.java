@@ -1,5 +1,6 @@
 package modelo;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,9 +37,10 @@ public class UsuarioModelo {
 	public void crearUsuario(Usuario usuario) {
 		try {
 			PreparedStatement crearUsuario = Conexion.con.prepareStatement(
-					"INSERT INTO usuarios (nombre, contrasena) VALUES (?,?)");
+					"INSERT INTO usuarios (nombre, contrasena, fecha_nac) VALUES (?,?,?)");
 			crearUsuario.setString(1, usuario.getNombre());
 			crearUsuario.setString(2, usuario.getContrasena());
+			crearUsuario.setDate(3, new Date(usuario.getFecha_nac().getTime()));
 			crearUsuario.execute();
 		} catch (SQLException e) {
 			System.out.println("Error: no se ha podido registrar el usuario");
@@ -60,14 +62,15 @@ public class UsuarioModelo {
 
 		public void modificarUsuario(Usuario usuario) {
 
-			String st = "UPDATE usuarios SET nombre = ?, contrasena=? WHERE id = ?";
+			String st = "UPDATE usuarios SET nombre = ?, contrasena=?, fecha_nac=? WHERE id = ?";
 		
 		try {
 			PreparedStatement pst = Conexion.con.prepareStatement(st);
 			
 			pst.setString(1, usuario.getNombre());
 			pst.setString(2, usuario.getContrasena());
-			pst.setInt(3, usuario.getId());
+			pst.setDate(3,new Date(usuario.getFecha_nac().getTime()));
+			pst.setInt(4, usuario.getId());
 			
 			pst.execute();
 		} catch (SQLException e) {
