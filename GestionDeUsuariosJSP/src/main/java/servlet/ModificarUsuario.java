@@ -21,64 +21,53 @@ import modelo.UsuarioModelo;
 @WebServlet("/ModificarUsuario")
 public class ModificarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ModificarUsuario() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
-		doPost(request,response);
-		
+	public ModificarUsuario() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		UsuarioModelo um = new UsuarioModelo();
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setAttribute("usuario", UsuarioModelo.cargarUsuario(request.getParameter("id")));
+		request.getRequestDispatcher("ModificarForm.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		int id = Integer.parseInt(request.getParameter("id"));
 		String nombre = request.getParameter("nombre");
 		String contrasena = request.getParameter("contrasena");
-		String a = request.getParameter("fecha_nac");
+
 		Date fecha_nac = null;
+
 		try {
-			fecha_nac = new SimpleDateFormat("yyyy-MM-dd").parse(a);
+			fecha_nac = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_nac"));
 		} catch (ParseException e) {
 			e.printStackTrace();
-		}	
-		
-		Conexion.conectar();
-
+		}
 
 		Usuario usuario = new Usuario();
-		
+
 		usuario.setId(id);
 		usuario.setNombre(nombre);
 		usuario.setContrasena(contrasena);
 		usuario.setFecha_nac(fecha_nac);
-		
-		um.modificarUsuario(usuario);
-		
-		request.setAttribute("usuarios", usuario);
-		
-		Conexion.cerrar();
 
-		request.getRequestDispatcher("ModificarForm.jsp").forward(request, response);
+		UsuarioModelo.modificarUsuario(usuario);
 
-
-		}
+		response.sendRedirect(request.getContextPath() + "/VerUsuarios");
 	}
-
-
+}

@@ -12,13 +12,17 @@
 	
 	<h1>Modificar Usuario</h1>
 	<form action="ModificarUsuario" method="POST">
-		<input type="text" value="${usuarios.id}" hidden="hidden" name="id">
+		<input type="text" value="${usuario.id}" hidden="hidden" name="id">
+		
 		<label for="nombre">Nombre</label>
-        <input type="text" name="nombre" value="${usuarios.nombre}">
+        <input type="text" name="nombre" value="${usuario.nombre}">
+        
         <label for="contrasena">Contrasena</label>
-        <input type="text" name="contrasena" value="${usuarios.contrasena}">
+        <input type="text" name="contrasena" value="${usuario.contrasena}">
+        
         <label for="fecha">Fecha</label>
-        <input type="date" name="fecha_nac" value="${usuarios.fecha_nac}"> 
+        <input type="text" name="fecha_nac" value="${usuario.fecha_nac}"> 
+        
         <input type="submit" value="Enviar">
         </form>
         <form action="VerUsuarios">
