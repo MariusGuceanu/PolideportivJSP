@@ -58,7 +58,7 @@ public class InsertarUsuario extends HttpServlet {
 			fecha_nac = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_nac"));
 		} catch (ParseException e) {
 			e.printStackTrace();
-		}		
+		}
 		Usuario usuario = new Usuario();
 		
 		usuario.setNombre(nombre);
