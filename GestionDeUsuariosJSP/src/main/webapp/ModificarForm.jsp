@@ -21,7 +21,7 @@
         <input type="text" name="contrasena" value="${usuario.contrasena}">
         
         <label for="fecha">Fecha</label>
-        <input type="text" name="fecha_nac" value="${usuario.fecha_nac}"> 
+        <input type="date" name="fecha_nac" value="${usuario.fecha_nac}"> 
         
         <input type="submit" value="Enviar">
         </form>

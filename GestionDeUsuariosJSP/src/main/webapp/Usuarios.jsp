@@ -21,6 +21,7 @@
 				<td>Nombre</td>
 				<td>Contrasena</td>
 				<td>Fecha_Nacimiento</td>
+				<td>Rol / Tarea</td>
 				<td>Acciones</td>
 			</tr>
 
@@ -32,6 +33,7 @@
 					<td>${usuario.nombre}</td>
 					<td>${usuario.contrasena}</td>
 					<td>${usuario.fecha_nac}</td>
+					<td>cositas</td>
 					<td><a href="ModificarUsuario?id=${usuario.id}">Modificar</a></td>
 				</tr>
 
