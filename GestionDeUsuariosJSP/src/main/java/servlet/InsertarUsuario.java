@@ -1,6 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,27 +34,40 @@ public class InsertarUsuario extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	
 		
-		doPost(request, response);
-
+		request.getRequestDispatcher("InsertarForm.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+		
+		
 		UsuarioModelo um = new UsuarioModelo();
 		Conexion.conectar();
 		
 		String nombre = request.getParameter("nombre");
-		
+		String contrasena = request.getParameter("contrasena");
+		Date fecha_nac = null;
+		try {
+			fecha_nac = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_nac"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}		
 		Usuario usuario = new Usuario();
 		
 		usuario.setNombre(nombre);
+		usuario.setContrasena(contrasena);
+		usuario.setFecha_nac(fecha_nac);
 
 		um.crearUsuario(usuario);
 		
-		request.getRequestDispatcher("UsuarioInsertado.jsp").forward(request, response);
+		Conexion.cerrar();
 	}
 
 }
